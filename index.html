@@ -24,6 +24,10 @@
         align-items: center;
         justify-content: center;
         font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
+        background: #fff;
+        color: #333;
+        text-align: center;
+        padding: 20px;
       }
       .fallback a {
         color: #0b57d0;
@@ -37,10 +41,10 @@
   </head>
 
   <body>
-    <!-- ✅ 嵌入新版 GAS Web App -->
+    <!-- ✅ 嵌入最新版 GAS Web App -->
     <iframe
       id="app"
-      src="https://script.google.com/macros/s/AKfycbwJeIRNpGq8mxk22bMQkz5kKjTOvMbPNvDm6c02tmS60Vn3YiBUvYmZNPAkQgbFi3U/exec?v=20251006"
+      src="https://script.google.com/macros/s/AKfycbztjk1fsEJilKQDZMlOHZN_vK7Xw9KBvp_N2uGI-vo0YjIMarxtoTMFnrgeeUynaKAg/exec?v=20251007"
       referrerpolicy="no-referrer-when-downgrade"
       allow="fullscreen"
     ></iframe>
@@ -51,7 +55,7 @@
         <p>如果沒有自動載入，請點下面的連結直接開啟：</p>
         <p style="text-align:center; margin-top:12px;">
           <a
-            href="https://script.google.com/macros/s/AKfycbwJeIRNpGq8mxk22bMQkz5kKjTOvMbPNvDm6c02tmS60Vn3YiBUvYmZNPAkQgbFi3U/exec"
+            href="https://script.google.com/macros/s/AKfycbztjk1fsEJilKQDZMlOHZN_vK7Xw9KBvp_N2uGI-vo0YjIMarxtoTMFnrgeeUynaKAg/exec?v=20251007"
             target="_blank"
             rel="noopener"
           >
@@ -65,9 +69,12 @@
       const frame = document.getElementById('app');
       const fallback = document.getElementById('fallback');
       let loaded = false;
+
       frame.addEventListener('load', () => {
         loaded = true;
       });
+
+      // 若 5 秒內沒載入，顯示備援區
       setTimeout(() => {
         if (!loaded) fallback.classList.add('show');
       }, 5000);
