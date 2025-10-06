@@ -23,8 +23,7 @@
         display: none;
         align-items: center;
         justify-content: center;
-        font-family: system-ui, -apple-system, Segoe UI, Roboto, Noto Sans, sans-serif;
-        background: #fff;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif;
       }
       .fallback a {
         color: #0b57d0;
@@ -36,23 +35,27 @@
       }
     </style>
   </head>
+
   <body>
-    <!-- ✅ 新的 GAS 部署 URL -->
+    <!-- ✅ 嵌入新版 GAS Web App -->
     <iframe
       id="app"
-      src="https://script.google.com/macros/s/AKfycbwyjElmL1u8wKY3fZ4inIL1QI_818p3TWd7a3jDJMBYYYPx43p39IY3GxCZfhoCNFRL/exec?v=20251006"
-      referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+      src="https://script.google.com/macros/s/AKfycbzyONzOAKzHiJ0u90XMLjoW_i-YIZbZEEBMgX3cqh35jG4LqtXQaB3lTnlYTSrjgRxT/exec?v=20251006"
+      referrerpolicy="no-referrer-when-downgrade"
+      allow="fullscreen"
+    ></iframe>
 
+    <!-- 若 iframe 載入失敗顯示備援連結 -->
     <div id="fallback" class="fallback">
       <div>
         <p>如果沒有自動載入，請點下面的連結直接開啟：</p>
         <p style="text-align:center; margin-top:12px;">
           <a
-            href="https://script.google.com/macros/s/AKfycbwyjElmL1u8wKY3fZ4inIL1QI_818p3TWd7a3jDJMBYYYPx43p39IY3GxCZfhoCNFRL/exec"
+            href="https://script.google.com/macros/s/AKfycbzyONzOAKzHiJ0u90XMLjoW_i-YIZbZEEBMgX3cqh35jG4LqtXQaB3lTnlYTSrjgRxT/exec"
             target="_blank"
-            rel="noopener">
-            開啟預購表單
+            rel="noopener"
+          >
+            開啟福盛園藝預購表單
           </a>
         </p>
       </div>
@@ -62,7 +65,9 @@
       const frame = document.getElementById('app');
       const fallback = document.getElementById('fallback');
       let loaded = false;
-      frame.addEventListener('load', () => { loaded = true; });
+      frame.addEventListener('load', () => {
+        loaded = true;
+      });
       setTimeout(() => {
         if (!loaded) fallback.classList.add('show');
       }, 5000);
